@@ -1,0 +1,473 @@
+Last login: Wed Feb 26 23:10:29 on ttys001
+Hudas-MBP:~ hudaumer$ git init
+Reinitialized existing Git repository in /Users/hudaumer/.git/
+Hudas-MBP:~ hudaumer$ echo "# Database_MySQL" >> README.md
+Hudas-MBP:~ hudaumer$ git init
+Reinitialized existing Git repository in /Users/hudaumer/.git/
+Hudas-MBP:~ hudaumer$ git add README.md
+Hudas-MBP:~ hudaumer$ git commit -m "first commit"
+[master e4c2c84] first commit
+ 2 files changed, 12 insertions(+)
+ create mode 100644 Desktop/dockercomposefile/docker-compose.yml
+ create mode 100644 README.md
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/hudaumer/Database_MySQL.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': hudaumer
+Password for 'https://hudaumer@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': hudaumer
+Password for 'https://hudaumer@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': @hudaumer
+Password for 'https://@hudaumer@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ clear
+
+Hudas-MBP:~ hudaumer$ git remote add origin remote repository URL
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+Hudas-MBP:~ hudaumer$ # Sets the new remote
+Hudas-MBP:~ hudaumer$ $ git remote -v
+-bash: $: command not found
+Hudas-MBP:~ hudaumer$ # Verifies the new remote URL
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': clear
+Password for 'https://clear@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ clear
+
+
+Hudas-MBP:~ hudaumer$ echo "# Database_MySQL" >> README.md
+Hudas-MBP:~ hudaumer$ git init
+Reinitialized existing Git repository in /Users/hudaumer/.git/
+Hudas-MBP:~ hudaumer$ git add README.md
+Hudas-MBP:~ hudaumer$ git commit -m "first commit"
+[master 4a4eafb] first commit
+ 1 file changed, 1 insertion(+)
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/hudaumer/Database_MySQL.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': hudaumer
+Password for 'https://hudaumer@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': hu22
+Password for 'https://hu22@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': hu22
+Password for 'https://hu22@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/IT490-Group4/Project.git/'
+Hudas-MBP:~ hudaumer$ git push -u origin master
+Username for 'https://github.com': hu22@njit.edu
+Password for 'https://hu22@njit.edu@github.com': 
+To https://github.com/IT490-Group4/Project.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Hudas-MBP:~ hudaumer$ git push --help
+Hudas-MBP:~ hudaumer$ 
+Hudas-MBP:~ hudaumer$ 
+Hudas-MBP:~ hudaumer$ clear
+
+Hudas-MBP:~ hudaumer$ get fetch remotename
+-bash: get: command not found
+Hudas-MBP:~ hudaumer$ git fetch remotename
+fatal: 'remotename' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Hudas-MBP:~ hudaumer$ git fetch database_MySQL
+fatal: 'database_MySQL' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Hudas-MBP:~ hudaumer$ docker ps
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                                                 NAMES
+f6cd6c77fa29        mysql                   "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:3306->3306/tcp, 33060/tcp                     ms
+a9b96196fb9e        rabbitmq:3-management   "docker-entrypoint.s…"   5 days ago          Up 5 days           4369/tcp, 5671-5672/tcp, 15671-15672/tcp, 25672/tcp   hudaumer_messaging_1
+f4ea05cfb22a        mariadb                 "docker-entrypoint.s…"   5 days ago          Up 5 days           3306/tcp                                              hudaumer_mariadb_1
+ebb8b478c8a6        postgres                "docker-entrypoint.s…"   5 days ago          Up 5 days           5432/tcp                                              hudaumer_postgres_1
+3bd9d36fb59b        hudaumer_front_end      "flask run --host=0.…"   5 days ago          Up 5 days           0.0.0.0:5000->5000/tcp, 5672/tcp                      hudaumer_front_end_1
+Hudas-MBP:~ hudaumer$ echo "# Database_MySQL" >> README.md
+Hudas-MBP:~ hudaumer$ git fetch database_MySQL
+fatal: 'database_MySQL' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/hudaumer/Database_MySQL.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ docker exec -it ms bash
+root@f6cd6c77fa29:/# mysql -u root -ppass
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> describe register;
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| user1              |
++--------------------+
+5 rows in set (0.04 sec)
+
+mysql> use user1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> describe register;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| fname | varchar(50) | NO   |     | NULL    |       |
+| lname | varchar(50) | NO   |     | NULL    |       |
+| id    | varchar(50) | NO   | PRI | NULL    |       |
+| email | varchar(50) | NO   |     | NULL    |       |
+| pass  | varchar(50) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> show tables
+    -> 
+    -> ;
++-----------------+
+| Tables_in_user1 |
++-----------------+
+| register        |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> exit
+Bye
+root@f6cd6c77fa29:/# exit
+exit
+Hudas-MBP:~ hudaumer$ cleat
+-bash: cleat: command not found
+Hudas-MBP:~ hudaumer$ clear
+
+Hudas-MBP:~ hudaumer$ docker -a
+unknown shorthand flag: 'a' in -a
+See 'docker --help'.
+
+Usage:	docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/Users/hudaumer/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/Users/hudaumer/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/Users/hudaumer/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/Users/hudaumer/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  builder     Manage builds
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+
+Hudas-MBP:~ hudaumer$ clear
+
+Hudas-MBP:~ hudaumer$ echo "# DataBase" >> README.md
+Hudas-MBP:~ hudaumer$ git init
+Reinitialized existing Git repository in /Users/hudaumer/.git/
+Hudas-MBP:~ hudaumer$ git add README.md
+Hudas-MBP:~ hudaumer$ git commit -m "first commit"
+[master bdd4fe1] first commit
+ 1 file changed, 2 insertions(+)
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/IT490-Group4/DataBase.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin master
+To https://github.com/IT490-Group4/Project.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Hudas-MBP:~ hudaumer$ echo "# db" >> README.md
+Hudas-MBP:~ hudaumer$ git init
+Reinitialized existing Git repository in /Users/hudaumer/.git/
+Hudas-MBP:~ hudaumer$ git add README.md
+Hudas-MBP:~ hudaumer$ git commit -m "first commit"
+[master b9a2ff8] first commit
+ 1 file changed, 1 insertion(+)
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/IT490-Group4/db.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin maste
+error: src refspec maste does not match any
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+Hudas-MBP:~ hudaumer$ 
+Hudas-MBP:~ hudaumer$ git push -u origin maste
+error: src refspec maste does not match any
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+Hudas-MBP:~ hudaumer$ echo "# Database_MySQL" >> README.md
+Hudas-MBP:~ hudaumer$ git init
+Reinitialized existing Git repository in /Users/hudaumer/.git/
+Hudas-MBP:~ hudaumer$ git add README.md
+Hudas-MBP:~ hudaumer$ git commit -m "first commit"
+[master 3d963d3] first commit
+ 1 file changed, 1 insertion(+)
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/hudaumer/Database_MySQL.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin master
+To https://github.com/IT490-Group4/Project.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/hudaumer/Database_MySQL.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin master
+To https://github.com/IT490-Group4/Project.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Hudas-MBP:~ hudaumer$ git remote add origin https://github.com/hudaumer/Database_MySQL.git
+fatal: remote origin already exists.
+Hudas-MBP:~ hudaumer$ git push -u origin master
+To https://github.com/IT490-Group4/Project.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/IT490-Group4/Project.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Hudas-MBP:~ hudaumer$ clear
+
+Hudas-MBP:~ hudaumer$ docker ps
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                                                 NAMES
+f6cd6c77fa29        mysql                   "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:3306->3306/tcp, 33060/tcp                     ms
+a9b96196fb9e        rabbitmq:3-management   "docker-entrypoint.s…"   5 days ago          Up 5 days           4369/tcp, 5671-5672/tcp, 15671-15672/tcp, 25672/tcp   hudaumer_messaging_1
+f4ea05cfb22a        mariadb                 "docker-entrypoint.s…"   5 days ago          Up 5 days           3306/tcp                                              hudaumer_mariadb_1
+ebb8b478c8a6        postgres                "docker-entrypoint.s…"   5 days ago          Up 5 days           5432/tcp                                              hudaumer_postgres_1
+3bd9d36fb59b        hudaumer_front_end      "flask run --host=0.…"   5 days ago          Up 5 days           0.0.0.0:5000->5000/tcp, 5672/tcp                      hudaumer_front_end_1
+Hudas-MBP:~ hudaumer$ 
+Hudas-MBP:~ hudaumer$ git add README.mddocker exec -it ms bash
+error: unknown switch `t'
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           select hunks interactively
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    --renormalize         renormalize EOL of tracked files (implies -u)
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add changes from all tracked and untracked files
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+    --ignore-missing      check if - even missing - files are ignored in dry run
+    --chmod (+|-)x        override the executable bit of the listed files
+
+Hudas-MBP:~ hudaumer$ docker exec -it ms bash
+root@f6cd6c77fa29:/# mysql -u root -ppass
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| user1              |
++--------------------+
+5 rows in set (0.02 sec)
+
+mysql> use user1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> describe register;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| fname | varchar(50) | NO   |     | NULL    |       |
+| lname | varchar(50) | NO   |     | NULL    |       |
+| id    | varchar(50) | NO   | PRI | NULL    |       |
+| email | varchar(50) | NO   |     | NULL    |       |
+| pass  | varchar(50) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> exit
+Bye
+root@f6cd6c77fa29:/# exit
+exit
+Hudas-MBP:~ hudaumer$ clear
+
+Hudas-MBP:~ hudaumer$ docker exec -it ms bash
+root@f6cd6c77fa29:/# mysql -u root -ppass
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| user1              |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use user1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> describe register;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| fname | varchar(50) | NO   |     | NULL    |       |
+| lname | varchar(50) | NO   |     | NULL    |       |
+| id    | varchar(50) | NO   | PRI | NULL    |       |
+| email | varchar(50) | NO   |     | NULL    |       |
+| pass  | varchar(50) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> 
