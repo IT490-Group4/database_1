@@ -8,3 +8,7 @@ def index():
 @app.route('/submit')
 def submit():
         return render_template('submit.html')
+
+@app.route('/register')
+def register():
+        return render_template('register.html')
