@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
-EXPOSE 5000 5672
+EXPOSE 5000
+EXPOSE 5672
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
