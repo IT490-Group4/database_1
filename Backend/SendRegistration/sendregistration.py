@@ -2,7 +2,7 @@ import pika
 import time
 import json
 
-print ("Hello sleeping sned login.....")
+print ("Sending the Json registration file.....")
 time.sleep(60)
 
 data = {}
