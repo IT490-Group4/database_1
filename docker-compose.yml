@@ -19,11 +19,21 @@ services:
         build: ./front_end
         ports:
             - 5000:5000
-    recieve:
-        build: './Backend/Receive'
+   
+    recieveregis:
+        build: './Backend/RegisAuth'
+
+    recieveauth:
+        build: './Backend/loginAuth'
 
     receiveregis:
         build: './Backend/ReceiveRegistration'
 
     sendregis:
         build: './Backend/SendRegistration'
+
+    receivelogin:
+        build: './Backend/ReceiveLogin'
+
+    sendlogin:
+        build: './Backend/SendLogin'
