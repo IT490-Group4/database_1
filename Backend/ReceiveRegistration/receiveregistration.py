@@ -4,16 +4,6 @@ import time
 import json
 import mysql.connector
 
-regis = {}
-
-cnx = mysql.connector.connect(user='root', password='changeme', host = 'mysql', port = 3306, database='myDB')
-
-
-
-if cnx.is_connected():
-	print("connected to sql server to receive registration data")
-
-
 
 
 time.sleep(60)
@@ -28,18 +18,37 @@ channel.queue_declare(queue='registration')
 
 
 def callback(ch, method, properties, body):
-	print(" [x] Received %r" % json.loads(body))
-	regis = json.loads(body)
-	cursor = cnx.cursor()
-	
-	add_user = """INSERT INTO USER (FIRST_NAME, LAST_NAME, USERID, PASSWORD, EMAIL, CONFIRM_PASSWORD)
-    				VALUES ('cool', 'dna', 12345, 'dsads', 'this', 'none') """
-    
+    print(" [x] Received %r" % json.loads(body))
+    regis = {}
+    regis = json.loads(body)
+    print(regis)
+    cnx = mysql.connector.connect(user='root', password='changeme', host = 'mysql', port = 3306, database='myDB')
+    print('after cnx')
+    cursor = cnx.cursor()
+    print('after cursor is made')
 
-	cursor.execute(add_user)
-	cnx.commit()
-	cursor.close()            
-   
+    add_user = """INSERT INTO USER (FIRST_NAME, LAST_NAME, USERID, PASSWORD, EMAIL, CONFIRM_PASSWORD)
+               VALUES (%s , %s, 12345, %s, %s, %s) """
+
+    records_to_insert = (regis['fname'], regis['lname'], regis['passwd'], regis['email'], 'none')
+
+    #print('after add_user')
+
+    cursor.execute(add_user, records_to_insert)
+    print('after cursor.execute')
+    cnx.commit()
+    cursor.close()     
+    cnx.close()       
+    connection = pika.BlockingConnection(pika.ConnectionParameters('messaging'))
+    channel = connection.channel()
+    channel.queue_declare(queue='authReg')
+
+    channel.basic_publish(exchange='',
+                      routing_key='authReg',
+                      body='registration Successful')
+    print(" [x] Sent 'registration Successful'")
+
+    connection.close()
 
 
 

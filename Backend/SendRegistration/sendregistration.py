@@ -6,11 +6,11 @@ print ("Hello sleeping sned login.....")
 time.sleep(60)
 
 data = {}
-data['user'] = "haloman"
-data['passwd'] = "coolCat"
-data['fname'] = "coolCat"
-data['lname'] = "coolCat"
-data['email'] = "coolCat"
+data['user'] = "ddd9"
+data['passwd'] = "something"
+data['fname'] = "Daniel"
+data['lname'] = "Drechsel"
+data['email'] = "ddd9@njit.edu"
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('messaging'))
 channel = connection.channel()
