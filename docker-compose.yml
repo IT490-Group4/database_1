@@ -19,8 +19,11 @@ services:
         build: ./front_end
         ports:
             - 5000:5000
-    hello:
-        build: './Backend/Hello'
-
     recieve:
         build: './Backend/Receive'
+
+    receiveregis:
+        build: './Backend/ReceiveRegistration'
+
+    sendregis:
+        build: './Backend/SendRegistration'
