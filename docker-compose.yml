@@ -7,6 +7,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: changeme
             MYSQL_DATABASE: myDB
+        ports:
+          - "3308:3306"
         volumes:
          - ./database/myvol:/var/lib/mysql
     admin:    
@@ -17,8 +19,21 @@ services:
         build: ./front_end
         ports:
             - 5000:5000
-    hello:
-        build: './Backend/Hello'
+   
+    recieveregis:
+        build: './Backend/RegisAuth'
 
-    recieve:
-        build: './Backend/Receive'
+    recieveauth:
+        build: './Backend/loginAuth'
+
+    receiveregis:
+        build: './Backend/ReceiveRegistration'
+
+    sendregis:
+        build: './Backend/SendRegistration'
+
+    receivelogin:
+        build: './Backend/ReceiveLogin'
+
+    sendlogin:
+        build: './Backend/SendLogin'
