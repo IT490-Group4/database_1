@@ -55,7 +55,7 @@ def callback(ch, method, properties, body):
     connection.close()
 
 
-
+#https://www.vitoshacademy.com/hashing-passwords-in-python/
 def hash_password(password):
     """Hash a password for storing."""
     salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
