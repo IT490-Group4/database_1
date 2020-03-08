@@ -3,6 +3,7 @@ import pika
 import time
 import json
 import mysql.connector
+import hashlib, binascii, os
 
 
 
@@ -26,11 +27,14 @@ def callback(ch, method, properties, body):
     print('after cnx')
     cursor = cnx.cursor()
     print('after cursor is made')
+    stored_password = hash_password(regis['passwd'])
+    print(stored_password)
+
 
     add_user = """INSERT INTO REGISTRATION (FIRST_NAME, LAST_NAME, USERNAME, PASSWORD, EMAIL, CONFIRM_PASSWORD)
                VALUES (%s , %s, %s, %s, %s, %s) """
 
-    records_to_insert = (regis['fname'], regis['lname'], regis['user'] ,regis['passwd'], regis['email'], 'none')
+    records_to_insert = (regis['fname'], regis['lname'], regis['user'] ,regis['passwd'], regis['email'], stored_password)
 
     #print('after add_user')
 
@@ -45,12 +49,20 @@ def callback(ch, method, properties, body):
 
     channel.basic_publish(exchange='',
                       routing_key='authRegis',
-                      body=True)
+                      body='registration Successful')
     print(" [x] Sent 'registration Successful'")
 
     connection.close()
 
 
+
+def hash_password(password):
+    """Hash a password for storing."""
+    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
+    pwdhash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'), 
+                                salt, 100000)
+    pwdhash = binascii.hexlify(pwdhash)
+    return (salt + pwdhash).decode('ascii')
 
 
 
