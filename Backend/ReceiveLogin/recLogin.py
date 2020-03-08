@@ -63,7 +63,7 @@ def callback(ch, method, properties, body):
     cnx.close()
  
 
-
+#https://www.vitoshacademy.com/hashing-passwords-in-python/
 def verify_password(stored_password, provided_password):
     """Verify a stored password against one provided by user"""
     salt = stored_password[:64]
