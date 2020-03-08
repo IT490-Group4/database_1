@@ -45,7 +45,7 @@ def callback(ch, method, properties, body):
 
     channel.basic_publish(exchange='',
                       routing_key='authRegis',
-                      body='registration Successful')
+                      body=True)
     print(" [x] Sent 'registration Successful'")
 
     connection.close()

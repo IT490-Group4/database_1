@@ -47,7 +47,7 @@ def callback(ch, method, properties, body):
             channel.queue_declare(queue='authLogin')
             channel.basic_publish(exchange='',
                             routing_key='authLogin',
-                            body='Login Successful!')
+                            body=True)
             print(" [x] Sent ''Login Successful!'")
 
 

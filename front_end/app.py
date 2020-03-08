@@ -109,7 +109,7 @@ def new_register():
         pika.ConnectionParameters(host='messaging'))
     channel = connection.channel()
 
-    channel.queue_declare(queue='registrationConfirmation')
+    channel.queue_declare(queue='authRegis')
 
 
     def callback(ch, method, properties, body):
