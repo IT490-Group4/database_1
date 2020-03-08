@@ -3,6 +3,7 @@ import pika
 import time
 import json
 import mysql.connector
+import hashlib, binascii, os
 
 
 
@@ -10,11 +11,10 @@ time.sleep(65)
 
 
 
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='messaging'))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='messaging'))
 channel = connection.channel()
-
 channel.queue_declare(queue='login')
+
 
 
 def callback(ch, method, properties, body):
@@ -40,18 +40,18 @@ def callback(ch, method, properties, body):
         print("PASSWORD  = ", row[3])
         print("EMAIL  = ", row[4])
         print("CONFIRM_PASSWORD  = ", row[5], "\n" )
-        if(row[2]==loginInfo['user'] and row[3]==loginInfo['passwd']):
+        if(row[2]==loginInfo['user'] and verify_password(row[5], loginInfo['passwd'])):
             print("user Exists")
-            connection = pika.BlockingConnection(pika.ConnectionParameters('messaging'))
-            channel = connection.channel()
-            channel.queue_declare(queue='authLogin')
-            channel.basic_publish(exchange='',
+            connection1 = pika.BlockingConnection(pika.ConnectionParameters('messaging'))
+            channel1 = connection1.channel()
+            channel1.queue_declare(queue='authLogin')
+            channel1.basic_publish(exchange='',
                             routing_key='authLogin',
                             body='Login Successful!')
             print(" [x] Sent ''Login Successful!'")
 
 
-            connection.close()
+            connection1.close()
 
 
 
@@ -63,19 +63,17 @@ def callback(ch, method, properties, body):
     cnx.close()
  
 
-    connection = pika.BlockingConnection(pika.ConnectionParameters('messaging'))
-    channel = connection.channel()
-    channel.queue_declare(queue='authReg')
-
-    channel.basic_publish(exchange='',
-                      routing_key='authReg',
-                      body='registration Successful')
-    print(" [x] Sent 'registration Successful'")
-
-    connection.close()
-
-
-
+#https://www.vitoshacademy.com/hashing-passwords-in-python/
+def verify_password(stored_password, provided_password):
+    """Verify a stored password against one provided by user"""
+    salt = stored_password[:64]
+    stored_password = stored_password[64:]
+    pwdhash = hashlib.pbkdf2_hmac('sha512', 
+                                  provided_password.encode('utf-8'), 
+                                  salt.encode('ascii'), 
+                                  100000)
+    pwdhash = binascii.hexlify(pwdhash).decode('ascii')
+    return pwdhash == stored_password
 
 
 channel.basic_consume(

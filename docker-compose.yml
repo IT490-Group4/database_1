@@ -2,6 +2,9 @@ version: '3'
 services:
     messaging:
         build: './rabbitmq'
+        ports:
+          - "5672:5672"
+          - "15672:15672"
     mysql:
         image: 'mysql'
         environment:
