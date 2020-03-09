@@ -8,7 +8,6 @@ EXPOSE 15672
 
 COPY . /app
 WORKDIR /app
-#run on front end and back end
-#RUN  pip install rabbitmq && \
-#     pip install python pika --upgrade
+CMD rabbitmq-plugins enable rabbitmq_management
+
 
