@@ -1,0 +1,28 @@
+version: '3'
+services:
+   mysqlMaster:
+     image: mysql:5.7
+     env_file:
+       - ./master/mysql_master.env
+     container_name: "mysqlMaster"
+     environment:
+       MYSQL_ROOT_PASSWORD: changeme1
+     ports:
+       - "3306:3306"
+     volumes:
+       - ./master/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+       - ./master/data:/var/lib/mysql
+   mysqlSlave:
+     image: mysql:5.7
+     env_file:
+       - ./slave/mysql_slave.env
+     container_name: "mysqlSlave"
+     environment:
+       MYSQL_ROOT_PASSWORD: changeme
+     ports:
+       - "3307:3306"
+     depends_on:
+      - mysqlMaster
+     volumes:
+      - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./slave/data:/var/lib/mysql
